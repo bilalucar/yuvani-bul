@@ -1,0 +1,8 @@
+.form-signin {
+    max-width: 50%;
+    margin: auto;
+}
+
+.btn-primary:disabled {
+    background-color: #226490;
+}

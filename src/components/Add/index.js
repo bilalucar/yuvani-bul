@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import * as routes from "../../constants/routes";
 import {withRouter} from "react-router-dom";
 import * as db from "../../firebase/db";
+import * as storage from "../../firebase/storage";
+import * as firebase from "../../firebase/firebase";
+import FileUploader from 'react-firebase-file-uploader';
+import {imageReference} from "../../firebase/storage";
+import {ProgressBar} from "react-bootstrap";
 
 const AddPage = ({history}) =>
     <div>
@@ -19,13 +24,24 @@ const INITIAL_STATE = {
     phone: '',
     date: '',
     storagePath: '',
+    uid: '',
     error: null,
+    isUploading: false,
+    progress: 0,
+    imageUrl: '',
+    image: ''
 };
 
 class AddFormPage extends Component {
     constructor(props) {
         super(props);
         this.state = {...INITIAL_STATE};
+    }
+
+    componentDidMount() {
+        firebase.auth.onAuthStateChanged(authUser => {
+            INITIAL_STATE.uid = authUser.uid
+        });
     }
 
     onSubmit = (event) => {
@@ -35,14 +51,16 @@ class AddFormPage extends Component {
             category,
             phone,
             storagePath,
+            uid,
         } = this.state;
+
         const {
             history,
         } = this.props;
 
         const date = new Date().toLocaleString();
 
-        db.doCreateAdverts(name, description, category, phone, date, storagePath)
+        db.doCreateAdverts(name, description, category, phone, date, storagePath, uid)
             .then(() => {
                 this.setState(() => ({...INITIAL_STATE}));
             })
@@ -52,6 +70,17 @@ class AddFormPage extends Component {
 
         event.preventDefault();
     }
+
+    handleUploadStart = () => this.setState({isUploading: true, progress: 0});
+    handleProgress = (progress) => <ProgressBar now={progress} />;
+    handleUploadError = (error) => {
+        this.setState({isUploading: false});
+        console.error(error);
+    }
+    handleUploadSuccess = (filename) => {
+        this.setState({image: filename, progress: 100, isUploading: false});
+        firebase.storage.ref('images').child(filename).getDownloadURL().then(url => this.setState({imageUrl: url}));
+    };
 
     render() {
         const {
@@ -69,7 +98,8 @@ class AddFormPage extends Component {
             name === '';
 
         return (
-            <div className="container p-5 mt-5">
+            // TODO storage eksik
+            <div className="container">
                 <h2 className="form-signin-heading text-center mt-3 mb-3">Yeni İlan Ekle</h2>
                 <form className="form-signin" onSubmit={this.onSubmit}>
                     <input
@@ -101,9 +131,18 @@ class AddFormPage extends Component {
                         type="tel"
                         placeholder="Telefon Numarası"
                     />
-                    <input className="form-control mb-3"
-                           onChange={event => this.setState(updateByPropertyName('photo', event.target.value))}
-                           type="file" name="photo" data-browse-on-zone-click="true" multiple/>
+                    <FileUploader
+                        className="form-control mb-3"
+                        accept="image/*"
+                        name="image"
+                        randomizeFilename
+                        storageRef={firebase.storage.ref('images')}
+                        onUploadStart={this.handleUploadStart}
+                        onUploadError={this.handleUploadError}
+                        onUploadSuccess={this.handleUploadSuccess}
+                        onProgress={this.handleProgress}
+                        multiple
+                    />
                     <button className="btn btn-lg btn-primary btn-block" disabled={isInvalid} type="submit">
                         <i className="fa fa-plus" aria-hidden="true"></i> İlan Ekle
                     </button>

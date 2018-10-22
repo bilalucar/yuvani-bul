@@ -11,14 +11,15 @@ export const doCreateUser = (id, username, email) =>
 export const onceGetUsers = () =>
   db.ref('users').once('value');
 
-export const doCreateAdverts = (name, description, category, phone, date, storagePath) =>
+export const doCreateAdverts = (name, description, category, phone, date, storagePath, uid) =>
   db.ref('adverts').push({
       name,
       description,
       category,
       phone,
       date,
-      storagePath
+      storagePath,
+      uid
   });
 
 export const getAdverts = (callback) =>

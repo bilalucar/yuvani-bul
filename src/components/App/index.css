@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette&subset=latin-ext');
+
+.navbar {
+    background-color: #f5f5f5;
+}
+
+.navbar-brand {
+    font-family: 'Courgette', cursive;
+}
+
 .fixed-top {
     position: inherit;
     top: 0;
@@ -39,6 +49,6 @@
     }
 }
 
-.bg-dark {
-    background-color: #226490 !important;
+.breadcrumb {
+    background-color: #fff;
 }

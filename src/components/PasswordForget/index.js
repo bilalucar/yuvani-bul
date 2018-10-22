@@ -49,7 +49,7 @@ class PasswordForgetForm extends Component {
         const isInvalid = email === '';
 
         return (
-            <div className="container p-5 mt-5">
+            <div className="container">
                 <div className="text-center">
                     <img src={logo} alt="boohoo" className="img-fluid"/>
                 </div>

@@ -16,6 +16,7 @@ import * as routes from '../../constants/routes';
 import './index.css';
 import AddPage from "../Add";
 import PasswordChangeForm from "../PasswordChange";
+import AdvertDetail from "../AdvertDetail";
 
 const App = () =>
     <Router>
@@ -41,7 +42,7 @@ const App = () =>
             <Route exact path={routes.PASSWORD_CHANGE} component={() => <PasswordChangeForm/>}/>
             <Route exact path={routes.ACCOUNT} component={() => <AccountPage/>}/>
             <Route exact path={routes.ADD} component={() => <AddPage/>}/>
-
+            <Route path="/:id" component={() => <AdvertDetail/>}/>
             <footer className="page-footer font-small blue mt-5">
                 <div className="footer-copyright text-center py-3">© 2018 Copyright:
                     <a href="/"> Yuvanı Bul</a>

@@ -43,11 +43,11 @@ class LandingPage extends Component {
                             {adverts.map((adverts, key) =>
                                 <div className="col-lg-4 col-md-4 col-sm-6 portfolio-item">
                                     <div className="card h-100">
-                                        <a href="#"><img className="card-img-top" src={adverts.imageUrl}
+                                        <a href={'/' + adverts.id}><img className="card-img-top" src={adverts.imageUrl}
                                                          alt=""/></a>
                                         <div className="card-body">
                                             <h4 className="card-title">
-                                                <a href="#">{adverts.name}</a>
+                                                <a href={'/' + adverts.id}>{adverts.name}</a>
                                             </h4>
                                             <p className="card-text">{adverts.description} <br/>{adverts.date}</p>
                                         </div>

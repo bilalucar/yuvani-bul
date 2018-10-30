@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 
 import {db} from '../../firebase';
 
@@ -15,7 +15,7 @@ class LandingPage extends Component {
     }
 
     componentWillMount() {
-        db.getAdverts((snapshot) => {
+        db.list((snapshot) => {
             this.setState(prevState => ({
                 adverts: [snapshot.val(), ...prevState.adverts],
             }));
@@ -43,8 +43,9 @@ class LandingPage extends Component {
                             {adverts.map((adverts, key) =>
                                 <div className="col-lg-4 col-md-4 col-sm-6 portfolio-item">
                                     <div className="card h-100">
-                                        <a href={'/' + adverts.id}><img className="card-img-top" src={adverts.imageUrl}
-                                                         alt=""/></a>
+                                        <Link to={'/adverts/' + adverts.id} >
+                                            <img className="card-img-top" src={adverts.imageUrl}
+                                                         alt=""/></Link>
                                         <div className="card-body">
                                             <h4 className="card-title">
                                                 <a href={'/' + adverts.id}>{adverts.name}</a>

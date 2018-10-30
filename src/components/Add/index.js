@@ -8,6 +8,7 @@ import FileUploader from 'react-firebase-file-uploader';
 import {imageReference} from "../../firebase/storage";
 import {ProgressBar} from "react-bootstrap";
 import {writeAdvertsId} from "../../firebase/db";
+import withAuthorization from "../Session/withAuthorization";
 
 const AddPage = ({history}) =>
     <div>
@@ -62,7 +63,7 @@ class AddFormPage extends Component {
 
         const date = new Date().toLocaleString();
 
-        db.doCreateAdverts(name, description, category, phone, date, imageUrl, uid, id)
+        db.create(name, description, category, phone, date, imageUrl, uid, id)
             .then((data) => {
                 this.setState(() => ({...INITIAL_STATE}));
                 writeAdvertsId(data.key);
@@ -160,9 +161,6 @@ class AddFormPage extends Component {
         );
     }
 }
+const authCondition = (authUser) => !!authUser;
 
-export default withRouter(AddPage);
-
-export {
-    AddPage,
-};
+export default withAuthorization(authCondition)(AddPage);

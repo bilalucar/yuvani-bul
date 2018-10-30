@@ -7,6 +7,7 @@ import * as firebase from "../../firebase/firebase";
 import FileUploader from 'react-firebase-file-uploader';
 import {imageReference} from "../../firebase/storage";
 import {ProgressBar} from "react-bootstrap";
+import {writeAdvertsId} from "../../firebase/db";
 
 const AddPage = ({history}) =>
     <div>
@@ -23,13 +24,13 @@ const INITIAL_STATE = {
     category: '',
     phone: '',
     date: '',
-    storagePath: '',
+    imageUrl: '',
     uid: '',
     error: null,
     isUploading: false,
     progress: 0,
-    imageUrl: '',
-    image: ''
+    image: '',
+    id: '0'
 };
 
 class AddFormPage extends Component {
@@ -50,8 +51,9 @@ class AddFormPage extends Component {
             description,
             category,
             phone,
-            storagePath,
+            imageUrl,
             uid,
+            id
         } = this.state;
 
         const {
@@ -60,26 +62,30 @@ class AddFormPage extends Component {
 
         const date = new Date().toLocaleString();
 
-        db.doCreateAdverts(name, description, category, phone, date, storagePath, uid)
-            .then(() => {
+        db.doCreateAdverts(name, description, category, phone, date, imageUrl, uid, id)
+            .then((data) => {
                 this.setState(() => ({...INITIAL_STATE}));
+                writeAdvertsId(data.key);
             })
             .catch(error => {
                 this.setState(updateByPropertyName('error', error));
             });
 
         event.preventDefault();
-    }
+    };
 
     handleUploadStart = () => this.setState({isUploading: true, progress: 0});
-    handleProgress = (progress) => <ProgressBar now={progress} />;
+    handleProgress = (progress) => <ProgressBar now={progress}/>;
     handleUploadError = (error) => {
         this.setState({isUploading: false});
         console.error(error);
-    }
+    };
     handleUploadSuccess = (filename) => {
         this.setState({image: filename, progress: 100, isUploading: false});
-        firebase.storage.ref('images').child(filename).getDownloadURL().then(url => this.setState({imageUrl: url}));
+        firebase.storage.ref('images').child(filename).getDownloadURL().then(url => {
+                this.setState({imageUrl: url});
+            }
+        );
     };
 
     render() {
@@ -89,13 +95,15 @@ class AddFormPage extends Component {
             category,
             phone,
             error,
+            progress
         } = this.state;
 
         const isInvalid =
             category === '' ||
             phone === '' ||
             description === '' ||
-            name === '';
+            name === '' ||
+            progress !== 100;
 
         return (
             // TODO storage eksik
@@ -141,7 +149,6 @@ class AddFormPage extends Component {
                         onUploadError={this.handleUploadError}
                         onUploadSuccess={this.handleUploadSuccess}
                         onProgress={this.handleProgress}
-                        multiple
                     />
                     <button className="btn btn-lg btn-primary btn-block" disabled={isInvalid} type="submit">
                         <i className="fa fa-plus" aria-hidden="true"></i> İlan Ekle

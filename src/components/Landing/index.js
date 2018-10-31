@@ -48,7 +48,7 @@ class LandingPage extends Component {
                                                          alt=""/></Link>
                                         <div className="card-body">
                                             <h4 className="card-title">
-                                                <a href={'/' + adverts.id}>{adverts.name}</a>
+                                                <Link to={'/adverts/' + adverts.id} >{adverts.name}</Link>
                                             </h4>
                                             <p className="card-text">{adverts.description} <br/>{adverts.date}</p>
                                         </div>

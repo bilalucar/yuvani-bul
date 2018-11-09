@@ -22,6 +22,14 @@ class LandingPage extends Component {
         });
     }
 
+    formatDate(date) {
+        const day = date.getDate();
+        const monthIndex = date.getMonth();
+        const year = date.getFullYear();
+
+        return day + '/' + monthIndex + '/' + year;
+    }
+
     render() {
         const {
             adverts
@@ -50,7 +58,8 @@ class LandingPage extends Component {
                                             <h4 className="card-title">
                                                 <Link to={'/adverts/' + adverts.id} >{adverts.name}</Link>
                                             </h4>
-                                            <p className="card-text">{adverts.description} <br/>{adverts.date}</p>
+                                            <p className="card-text">{adverts.description} <br/>
+                                                <b>{this.formatDate(new Date(adverts.date))}</b></p>
                                         </div>
                                     </div>
                                 </div>

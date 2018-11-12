@@ -48,7 +48,7 @@ class LandingPage extends Component {
                         <h1 className="my-4">Son Eklenen İlanlar</h1>
 
                         <div className="row">
-                            {adverts.map((adverts, key) =>
+                            {adverts.map((adverts) =>
                                 <div className="col-lg-4 col-md-4 col-sm-6 portfolio-item">
                                     <div className="card h-100">
                                         <Link to={'/adverts/' + adverts.id} >

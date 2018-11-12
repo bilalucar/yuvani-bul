@@ -1,7 +1,6 @@
 import {Component} from "react";
 import React from "react";
 import * as db from "../../firebase/db";
-import logo from "../SignIn/logo.png";
 
 class AdvertDetail extends Component {
 
@@ -31,7 +30,7 @@ class AdvertDetail extends Component {
                 </div>
                 <div className="row">
                     <div className="col-6">
-                        <img src={data.imageUrl} className="img-fluid"/>
+                        <img src={data.imageUrl} alt={data.name} className="img-fluid"/>
                     </div>
                     <div className="col-6">
                         <p>{data.description}</p>

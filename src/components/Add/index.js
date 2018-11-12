@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import * as routes from "../../constants/routes";
-import {withRouter} from "react-router-dom";
 import * as db from "../../firebase/db";
-import * as storage from "../../firebase/storage";
 import * as firebase from "../../firebase/firebase";
 import FileUploader from 'react-firebase-file-uploader';
-import {imageReference} from "../../firebase/storage";
 import {ProgressBar} from "react-bootstrap";
 import {writeAdvertsId} from "../../firebase/db";
 import withAuthorization from "../Session/withAuthorization";
+import {getUser} from "../../firebase/auth";
+import * as routes from "../../constants/routes";
 
 const AddPage = ({history}) =>
     <div>
@@ -19,31 +17,27 @@ const updateByPropertyName = (propertyName, value) => () => ({
     [propertyName]: value,
 });
 
-const INITIAL_STATE = {
-    name: '',
-    description: '',
-    category: '',
-    phone: '',
-    date: '',
-    imageUrl: '',
-    uid: '',
-    error: null,
-    isUploading: false,
-    progress: 0,
-    image: '',
-    id: '0'
-};
-
 class AddFormPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {...INITIAL_STATE};
+        this.state = {
+            name: '',
+            description: '',
+            category: '',
+            phone: '',
+            date: '',
+            imageUrl: '',
+            uid: '',
+            error: null,
+            isUploading: false,
+            progress: 0,
+            image: '',
+            id: '0'
+        }
     }
 
     componentDidMount() {
-        firebase.auth.onAuthStateChanged(authUser => {
-            INITIAL_STATE.uid = authUser.uid
-        });
+        this.setState({uid: getUser().uid});
     }
 
     onSubmit = (event) => {
@@ -65,8 +59,9 @@ class AddFormPage extends Component {
 
         db.create(name, description, category, phone, date, imageUrl, uid, id)
             .then((data) => {
-                this.setState(() => ({...INITIAL_STATE}));
+                this.setState(() => (this.state));
                 writeAdvertsId(data.key);
+                history.push(routes.LANDING);
             })
             .catch(error => {
                 this.setState(updateByPropertyName('error', error));
@@ -152,7 +147,7 @@ class AddFormPage extends Component {
                         onProgress={this.handleProgress}
                     />
                     <button className="btn btn-lg btn-primary btn-block" disabled={isInvalid} type="submit">
-                        <i className="fa fa-plus" aria-hidden="true"></i> İlan Ekle
+                        <i className="fa fa-plus" aria-hidden="true"/> İlan Ekle
                     </button>
 
                     {error && <p>{error.message}</p>}

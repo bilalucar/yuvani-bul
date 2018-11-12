@@ -13,7 +13,7 @@ const Navigation = (props, {authUser}) =>
             ? <NavigationAuth/>
             : <NavigationNonAuth/>
         }
-    </div>
+    </div>;
 
 Navigation.contextTypes = {
     authUser: PropTypes.object,
@@ -22,15 +22,15 @@ Navigation.contextTypes = {
 const NavigationAuth = () =>
     <ul className="nav navbar-nav navbar-right">
         <li className="nav-item"><Link className='nav-link' to={routes.LANDING}><i className="fa fa-home"
-                                                                                   aria-hidden="true"></i> Anasayfa</Link>
+    aria-hidden="true"/> Anasayfa</Link>
         </li>
         <li className="nav-item"><Link className='nav-link' to={routes.ADD}><i className="fa fa-plus"
-                                                                               aria-hidden="true"></i> İlan Ekle</Link>
+    aria-hidden="true"/> İlan Ekle</Link>
         </li>
         <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
-                <i className="fa fa-user" aria-hidden="true"></i> Hesap
+                <i className="fa fa-user" aria-hidden="true"/> Hesap
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link className='dropdown-item' to={routes.ACCOUNT}>Profil</Link>
@@ -38,16 +38,16 @@ const NavigationAuth = () =>
             </div>
         </li>
         <li className="nav-item"><SignOutButton/></li>
-    </ul>
+    </ul>;
 
 const NavigationNonAuth = () =>
     <ul className="nav navbar-nav navbar-right">
         <li className="nav-item"><Link className='nav-link' to={routes.LANDING}><i className="fa fa-home"
-                                                                                   aria-hidden="true"></i> Anasayfa</Link>
+    aria-hidden="true"/> Anasayfa</Link>
         </li>
         <li className="nav-item"><Link className='nav-link' to={routes.SIGN_IN}><i className="fa fa-sign-in"
-                                                                                   aria-hidden="true"></i> Giriş
+    aria-hidden="true"/> Giriş
             Yap</Link></li>
-    </ul>
+    </ul>;
 
 export default Navigation;

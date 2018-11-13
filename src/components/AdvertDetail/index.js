@@ -1,6 +1,7 @@
 import {Component} from "react";
 import React from "react";
 import * as db from "../../firebase/db";
+import './index.css';
 
 class AdvertDetail extends Component {
 
@@ -29,10 +30,12 @@ class AdvertDetail extends Component {
                     <h1 className='text-center'>{data.name}</h1>
                 </div>
                 <div className="row">
-                    <div className="col-6">
-                        <img src={data.imageUrl} alt={data.name} className="img-fluid"/>
+                    <div className="col-6 text-center">
+                        <img src={data.imageUrl} alt={data.name} className="img-fluid detail-img"/>
                     </div>
                     <div className="col-6">
+                        <h4>Açıklama</h4>
+                        <hr/>
                         <p>{data.description}</p>
                         <p><b>Pet Türü:</b> {data.category}</p>
                         <p><b>İlan Tarihi:</b> {data.date}</p>

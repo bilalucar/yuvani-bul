@@ -61,7 +61,6 @@ class AddFormPage extends Component {
             .then((data) => {
                 this.setState(() => (this.state));
                 writeAdvertsId(data.key);
-                history.push(routes.LANDING);
             })
             .catch(error => {
                 this.setState(updateByPropertyName('error', error));

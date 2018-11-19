@@ -38,6 +38,8 @@ class AdvertDetail extends Component {
                         <hr/>
                         <p>{data.description}</p>
                         <p><b>Pet Türü:</b> {data.category}</p>
+                        <p><b>Şehir:</b> {data.city}</p>
+                        <p><b>Cinsiyet:</b> {data.gender}</p>
                         <p><b>İlan Tarihi:</b> {data.date}</p>
                         <p><b>İletişim:</b> {data.phone}</p>
                     </div>

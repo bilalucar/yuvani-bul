@@ -11,7 +11,7 @@ export const createUser = (id, username, email) =>
 export const onceGetUsers = () =>
   db.ref('users').once('value');
 
-export const create = (name, description, category, phone, date, imageUrl, uid, id) =>
+export const create = (name, description, category, phone, date, imageUrl, uid, id, gender, city) =>
   db.ref('adverts').push({
       name,
       description,
@@ -20,7 +20,9 @@ export const create = (name, description, category, phone, date, imageUrl, uid, 
       date,
       imageUrl,
       uid,
-      id
+      id,
+      gender,
+      city,
   });
 
 export const writeAdvertsId = (id) => {
@@ -45,3 +47,12 @@ export const list = (callback) =>
 export const get = (id) => (callback) =>
     db.ref('adverts/' + id)
         .on('value', callback);
+
+export const getGender = (callback) =>
+    db.ref('cinsiyet')
+        .on('child_added', callback);
+
+export const getCities = (callback) =>
+    db.ref('sehirler')
+        .orderByChild('id')
+        .on('child_added', callback);

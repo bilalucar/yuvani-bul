@@ -114,7 +114,7 @@ class SignUpForm extends Component {
                         type="password"
                         placeholder="Parolanızı Doğrulayın"
                     />
-                    <button className="btn btn-lg btn-primary btn-block" disabled={isInvalid} type="submit">
+                    <button className="btn btn-primary btn-block" disabled={isInvalid} type="submit">
                         <i className="fa fa-sign-in" aria-hidden="true"></i> Kayıt Ol
                     </button>
 

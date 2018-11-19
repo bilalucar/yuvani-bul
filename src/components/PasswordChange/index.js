@@ -65,7 +65,7 @@ class PasswordChangeForm extends Component {
                         type="password"
                         placeholder="Parolanızı Tekrarlayın"
                     />
-                    <button className="btn btn-lg btn-primary btn-block" disabled={isInvalid} type="submit">
+                    <button className="btn btn-primary btn-block" disabled={isInvalid} type="submit">
                         Parolamı Değiştir
                     </button>
 

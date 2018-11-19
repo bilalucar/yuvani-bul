@@ -38,10 +38,9 @@ class LandingPage extends Component {
         return (
             <div>
                 <div className="container jumbotron">
-                    <h1 className="display-4">Yuvanı Bul</h1>
-                    <p className="lead">Sen de çevrendeki yuva arayan evcil hayvanlar için ilan ver, onların ömürlük yuvalarına kavuşmasına yardımcı ol.</p>
-                    <p className="lead">
-                        <a className="btn btn-primary btn-lg" href="/ekle" role="button">Hemen İlan Ekle</a>
+                    <p className="lead text-center">Sen de çevrendeki yuva arayan evcil hayvanlar için ilan ver, onların ömürlük yuvalarına kavuşmasına yardımcı ol.</p>
+                    <p className="lead text-center">
+                        <a className="btn btn-primary" href="/ekle" role="button">Hemen İlan Ekle</a>
                     </p>
                 </div>
                     <div className="container mb-5">

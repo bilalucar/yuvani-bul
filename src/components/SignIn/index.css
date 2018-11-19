@@ -3,6 +3,18 @@
     margin: auto;
 }
 
+.form-add {
+    max-width: 50%;
+    margin: auto;
+}
+
 .btn-primary:disabled {
     background-color: #226490;
+}
+
+@media (min-width: 576px) {
+    .jumbotron {
+        margin-top: 2rem;
+        padding: 2rem 2rem;
+    }
 }

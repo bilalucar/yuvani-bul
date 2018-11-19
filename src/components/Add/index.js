@@ -6,7 +6,6 @@ import {ProgressBar} from "react-bootstrap";
 import {writeAdvertsId} from "../../firebase/db";
 import withAuthorization from "../Session/withAuthorization";
 import {getUser} from "../../firebase/auth";
-import * as routes from "../../constants/routes";
 
 const AddPage = ({history}) =>
     <div>
@@ -18,12 +17,16 @@ const updateByPropertyName = (propertyName, value) => () => ({
 });
 
 class AddFormPage extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             name: '',
             description: '',
             category: '',
+            gender: '',
+            city: '',
+            cities: [],
             phone: '',
             date: '',
             imageUrl: '',
@@ -36,8 +39,17 @@ class AddFormPage extends Component {
         }
     }
 
-    componentDidMount() {
-        this.setState({uid: getUser().uid});
+    componentWillMount() {
+        this.setState({
+            uid: getUser().uid
+        });
+        db.getCities((callback) => {
+            const cities = { name: callback.val().name, id: callback.val().id };
+            console.log(cities);
+            this.setState(prevState => ({
+                cities: [ cities, ...prevState.cities ],
+            }));
+        });
     }
 
     onSubmit = (event) => {
@@ -45,19 +57,17 @@ class AddFormPage extends Component {
             name,
             description,
             category,
+            city,
+            gender,
             phone,
             imageUrl,
             uid,
             id
         } = this.state;
 
-        const {
-            history,
-        } = this.props;
+        const date = new Date().getDate();
 
-        const date = new Date().toLocaleString();
-
-        db.create(name, description, category, phone, date, imageUrl, uid, id)
+        db.create(name, description, category, phone, date, imageUrl, uid, id, gender, city)
             .then((data) => {
                 this.setState(() => (this.state));
                 writeAdvertsId(data.key);
@@ -89,6 +99,8 @@ class AddFormPage extends Component {
             description,
             category,
             phone,
+            gender,
+            city,
             error,
             progress
         } = this.state;
@@ -98,58 +110,84 @@ class AddFormPage extends Component {
             phone === '' ||
             description === '' ||
             name === '' ||
+            gender === '' ||
+            city === '' ||
             progress !== 100;
 
         return (
-            // TODO storage eksik
             <div className="container">
-                <h2 className="form-signin-heading text-center mt-3 mb-3">Yeni İlan Ekle</h2>
-                <form className="form-signin" onSubmit={this.onSubmit}>
-                    <input
-                        className="form-control mb-3"
-                        value={name}
-                        onChange={event => this.setState(updateByPropertyName('name', event.target.value))}
-                        type="text"
-                        placeholder="İlan Başlığı"
-                    />
-                    <textarea className="form-control mb-3"
-                              value={description}
-                              onChange={event => this.setState(updateByPropertyName('description', event.target.value))}
-                              type="text"
-                              placeholder="Açıklama" rows="5" id="comment"/>
-                    <select className="form-control mb-3"
-                            value={category}
-                            onChange={event => this.setState(updateByPropertyName('category', event.target.value))}>
-                        <option value="-1">Evcil Hayvan Türü</option>
-                        <option value="kedi">Kedi</option>
-                        <option value="kopek">Köpek</option>
-                        <option value="kus">Kuş</option>
-                        <option value="balik">Balık</option>
-                        <option value="diger">Diğer</option>
-                    </select>
-                    <input
-                        className="form-control mb-3"
-                        value={phone}
-                        onChange={event => this.setState(updateByPropertyName('phone', event.target.value))}
-                        type="tel"
-                        placeholder="Telefon Numarası"
-                    />
-                    <FileUploader
-                        className="form-control mb-3"
-                        accept="image/*"
-                        name="image"
-                        randomizeFilename
-                        storageRef={firebase.storage.ref('images')}
-                        onUploadStart={this.handleUploadStart}
-                        onUploadError={this.handleUploadError}
-                        onUploadSuccess={this.handleUploadSuccess}
-                        onProgress={this.handleProgress}
-                    />
-                    <button className="btn btn-lg btn-primary btn-block" disabled={isInvalid} type="submit">
-                        <i className="fa fa-plus" aria-hidden="true"/> İlan Ekle
-                    </button>
+                <h2 className="text-center mt-3 mb-3">Yeni İlan Ekle</h2>
 
-                    {error && <p>{error.message}</p>}
+                <form className="form-add" onSubmit={this.onSubmit}>
+                    <div className="row">
+                        <div className="col-4">
+                            <input
+                                className="form-control mb-3"
+                                value={name}
+                                onChange={event => this.setState(updateByPropertyName('name', event.target.value))}
+                                type="text"
+                                placeholder="İlan Başlığı"
+                            />
+
+                            <select className="form-control mb-3"
+                                    value={category}
+                                    onChange={event => this.setState(updateByPropertyName('category', event.target.value))}>
+                                <option value="-1">Evcil Hayvan Türü</option>
+                                <option value="kedi">Kedi</option>
+                                <option value="kopek">Köpek</option>
+                                <option value="kus">Kuş</option>
+                                <option value="balik">Balık</option>
+                                <option value="diger">Diğer</option>
+                            </select>
+                            <select className="form-control mb-3"
+                                    value={gender}
+                                    onChange={event => this.setState(updateByPropertyName('gender', event.target.value))}>
+                                <option value="-1">Cinsiyet</option>
+                                <option value="Erkek">Erkek</option>
+                                <option value="Dişi">Dişi</option>
+                            </select>
+                            <select className="form-control mb-3"
+                                    value={city}
+                                    onChange={event => this.setState(updateByPropertyName('city', event.target.value))}>
+                                <option value="-1">Şehir</option>
+                                {
+                                    this.state.cities.map(city => <option key={city.id}>{city.name}</option>)
+                                }
+                            </select>
+                            <input
+                                className="form-control mb-3"
+                                value={phone}
+                                onChange={event => this.setState(updateByPropertyName('phone', event.target.value))}
+                                type="tel"
+                                placeholder="Telefon Numarası"
+                            />
+                        </div>
+                        <div className="col-7 offset-1">
+                            <label>Açıklama</label>
+                            <textarea className="form-control mb-3"
+                                      value={description}
+                                      onChange={event => this.setState(updateByPropertyName('description', event.target.value))}
+                                      type="text"
+                                      placeholder="Evcil hayvanımla ilgili bilinmesi gerekenler..." rows="8" id="comment"/>
+                            <FileUploader
+                                className="form-control mb-3"
+                                accept="image/*"
+                                name="image"
+                                randomizeFilename
+                                storageRef={firebase.storage.ref('images')}
+                                onUploadStart={this.handleUploadStart}
+                                onUploadError={this.handleUploadError}
+                                onUploadSuccess={this.handleUploadSuccess}
+                                onProgress={this.handleProgress}
+                            />
+                            <div className="text-right">
+                                <button className="btn btn-primary" disabled={isInvalid} type="submit">
+                                    <i className="fa fa-plus" aria-hidden="true"/> İlan Ekle
+                                </button>
+                                {error && <p>{error.message}</p>}
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         );

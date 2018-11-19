@@ -62,7 +62,7 @@ class PasswordForgetForm extends Component {
                         type="text"
                         placeholder="Email Adres"
                     />
-                    <button className="btn btn-lg btn-primary btn-block" disabled={isInvalid} type="submit">
+                    <button className="btn btn-primary btn-block" disabled={isInvalid} type="submit">
                         <i className="fa fa-sign-in" aria-hidden="true"></i> Parolanızı Sıfırlayın
                     </button>
 

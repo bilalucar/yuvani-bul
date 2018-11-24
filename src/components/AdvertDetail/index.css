@@ -1,3 +1,14 @@
+.detail {
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 20px 0;
+}
+
 .detail-img {
     max-height: 500px;
+}
+
+.detail-meta {
+    border-bottom: 1px solid #dedede;
+    padding: 12px 0px;
 }

@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 import {auth} from '../../firebase';
 import * as routes from '../../constants/routes';
-import logo from "../SignIn/logo.png";
 
 const PasswordForgetPage = () =>
     <div>
@@ -49,9 +48,9 @@ class PasswordForgetForm extends Component {
         const isInvalid = email === '';
 
         return (
-            <div className="container">
+            <div className="container p-5 mt-5">
                 <div className="text-center">
-                    <img src={logo} alt="boohoo" className="img-fluid"/>
+                    <img src="/images/knees.png" width="240" height="240" alt="logo" className="img-fluid"/>
                 </div>
                 <h2 className="form-signin-heading text-center mt-3 mb-3">Parolanızı Sıfırlayın</h2>
                 <form className="form-signin" onSubmit={this.onSubmit}>
@@ -62,8 +61,8 @@ class PasswordForgetForm extends Component {
                         type="text"
                         placeholder="Email Adres"
                     />
-                    <button className="btn btn-primary btn-block" disabled={isInvalid} type="submit">
-                        <i className="fa fa-sign-in" aria-hidden="true"></i> Parolanızı Sıfırlayın
+                    <button className="btn btn-button btn-block" disabled={isInvalid} type="submit">
+                        😭 Parolanızı Sıfırlayın
                     </button>
 
                     {error && <p>{error.message}</p>}
@@ -75,7 +74,7 @@ class PasswordForgetForm extends Component {
 
 const PasswordForgetLink = () =>
     <p className="text-center">
-        <Link to={routes.PASSWORD_FORGET}>Parolanızı mı unuttunuz?</Link>
+        <Link to={routes.PASSWORD_FORGET}>😔 Parolanızı mı unuttunuz?</Link>
     </p>
 
 export default PasswordForgetPage;

@@ -6,7 +6,6 @@ import {
 
 import {auth, db} from '../../firebase';
 import * as routes from '../../constants/routes';
-import logo from "../SignIn/logo.png";
 
 const SignUpPage = ({history}) =>
     <div>
@@ -81,7 +80,7 @@ class SignUpForm extends Component {
         return (
             <div className="container p-5 mt-5">
                 <div className="text-center">
-                    <img src={logo} alt="boohoo" className="img-fluid"/>
+                    <img src="/images/bath.png" width="240" height="240" alt="logo" className="img-fluid"/>
                 </div>
                 <h2 className="form-signin-heading text-center mt-3 mb-3">KAYIT OL</h2>
 
@@ -114,8 +113,8 @@ class SignUpForm extends Component {
                         type="password"
                         placeholder="Parolanızı Doğrulayın"
                     />
-                    <button className="btn btn-primary btn-block" disabled={isInvalid} type="submit">
-                        <i className="fa fa-sign-in" aria-hidden="true"></i> Kayıt Ol
+                    <button className="btn btn-button btn-block" disabled={isInvalid} type="submit">
+                        🥰 Kayıt Ol
                     </button>
 
                     {error && <p>{error.message}</p>}
@@ -130,7 +129,7 @@ const SignUpLink = () =>
     <p className="text-center">
         Hesabın yok mu?
         {' '}
-        <Link to={routes.SIGN_UP}>Kayıt Ol</Link>
+        <Link to={routes.SIGN_UP}> 🙏 Kayıt Ol</Link>
     </p>
 
 export default withRouter(SignUpPage);

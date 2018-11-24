@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import {auth} from '../../firebase';
-import logo from "../SignIn/logo.png";
 
 const updateByPropertyName = (propertyName, value) => () => ({
     [propertyName]: value,
@@ -45,9 +44,9 @@ class PasswordChangeForm extends Component {
             passwordOne !== passwordTwo ||
             passwordOne === '';
 
-        return (<div className="container">
+        return (<div className="container p-5 mt-5">
                 <div className="text-center">
-                    <img src={logo} alt="boohoo" className="img-fluid"/>
+                    <img src="/images/walking.png" width="240" height="240" alt="logo" className="img-fluid"/>
                 </div>
                 <h2 className="form-signin-heading text-center mt-3 mb-3">Parola Değiştir</h2>
                 <form className="form-signin" onSubmit={this.onSubmit}>
@@ -65,8 +64,8 @@ class PasswordChangeForm extends Component {
                         type="password"
                         placeholder="Parolanızı Tekrarlayın"
                     />
-                    <button className="btn btn-primary btn-block" disabled={isInvalid} type="submit">
-                        Parolamı Değiştir
+                    <button className="btn btn-button btn-block" disabled={isInvalid} type="submit">
+                        😜 Parolamı Değiştir
                     </button>
 
                     {error && <p>{error.message}</p>}

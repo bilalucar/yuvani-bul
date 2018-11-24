@@ -5,3 +5,7 @@ export const PASSWORD_FORGET = '/parola-sifirla';
 export const PASSWORD_CHANGE = '/parola-guncelle';
 export const ACCOUNT = '/hesap';
 export const ADD = '/ekle';
+export const CAT = '/category/kedi';
+export const DOG = '/category/kopek';
+export const BIRD = '/category/kus';
+export const MOUSE = '/category/kemirgen';

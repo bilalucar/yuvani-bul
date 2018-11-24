@@ -43,12 +43,22 @@ class AddFormPage extends Component {
         this.setState({
             uid: getUser().uid
         });
+        this.getCities();
+    }
+
+    async getCities () {
+        const items = [];
         db.getCities((callback) => {
-            const cities = { name: callback.val().name, id: callback.val().id };
-            console.log(cities);
-            this.setState(prevState => ({
-                cities: [ cities, ...prevState.cities ],
-            }));
+            callback.forEach((city) => {
+                const item = city.val();
+                item.key = city.key;
+                items.push(item);
+            });
+            this.setState({
+                cities: items.map((item) => {
+                    return item
+                })
+            })
         });
     }
 
@@ -116,7 +126,7 @@ class AddFormPage extends Component {
 
         return (
             <div className="container">
-                <h2 className="text-center mt-3 mb-3">Yeni İlan Ekle</h2>
+                <h3 className="mt-3 mb-3">Yeni Sahiplendirme İlanı</h3>
 
                 <form className="form-add" onSubmit={this.onSubmit}>
                     <div className="row">
@@ -181,8 +191,8 @@ class AddFormPage extends Component {
                                 onProgress={this.handleProgress}
                             />
                             <div className="text-right">
-                                <button className="btn btn-primary" disabled={isInvalid} type="submit">
-                                    <i className="fa fa-plus" aria-hidden="true"/> İlan Ekle
+                                <button className="btn btn-button" disabled={isInvalid} type="submit">
+                                    👉️ İlan Ekle
                                 </button>
                                 {error && <p>{error.message}</p>}
                             </div>

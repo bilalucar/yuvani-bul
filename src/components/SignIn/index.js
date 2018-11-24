@@ -7,7 +7,6 @@ import {auth} from '../../firebase';
 import * as routes from '../../constants/routes';
 
 import './index.css';
-import logo from './logo.png';
 
 const SignInPage = ({history}) =>
     <div>
@@ -69,7 +68,7 @@ class SignInForm extends Component {
         return (
             <div className="container p-5 mt-5">
                 <div className="text-center">
-                    <img src={logo} alt="boohoo" className="img-fluid"/>
+                    <img src="/images/seatting.png" width="240" height="240" alt="logo" className="img-fluid"/>
                 </div>
                 <h2 className="form-signin-heading text-center mt-3 mb-3">Giriş Yap</h2>
                 <form className="form-signin" onSubmit={this.onSubmit}>
@@ -87,8 +86,8 @@ class SignInForm extends Component {
                         type="password"
                         placeholder="Parola"
                     />
-                    <button className="btn btn-primary btn-block" disabled={isInvalid} type="submit">
-                        <i className="fa fa-sign-in" aria-hidden="true"></i> Giriş Yap
+                    <button className="btn btn-button btn-block" disabled={isInvalid} type="submit">
+                        😊 Giriş Yap
                     </button>
 
                     {error && <p>{error.message}</p>}

@@ -27,7 +27,7 @@ class LandingPage extends Component {
         const monthIndex = date.getMonth();
         const year = date.getFullYear();
 
-        return day + '/' + monthIndex + '/' + year;
+        return day + '.' + monthIndex + '.' + year;
     }
 
     render() {
@@ -37,28 +37,22 @@ class LandingPage extends Component {
 
         return (
             <div>
-                <div className="container jumbotron">
-                    <p className="lead text-center">Sen de çevrendeki yuva arayan evcil hayvanlar için ilan ver, onların ömürlük yuvalarına kavuşmasına yardımcı ol.</p>
-                    <p className="lead text-center">
-                        <a className="btn btn-primary" href="/ekle" role="button">Hemen İlan Ekle</a>
-                    </p>
-                </div>
                     <div className="container mb-5">
-                        <h1 className="my-4">Son Eklenen İlanlar</h1>
+                        <h3 className="my-4">Son Eklenen İlanlar 🐈</h3>
 
                         <div className="row">
                             {adverts.map((adverts) =>
-                                <div className="col-lg-4 col-md-4 col-sm-6 portfolio-item">
+                                <div className="col-lg-3 col-md-3 col-sm-4 portfolio-item">
                                     <div className="card h-100">
                                         <Link to={'/adverts/' + adverts.id} >
                                             <img className="card-img-top" src={adverts.imageUrl}
                                                          alt=""/></Link>
                                         <div className="card-body">
-                                            <h4 className="card-title">
+                                            <h5 className="card-title">
                                                 <Link to={'/adverts/' + adverts.id} >{adverts.name}</Link>
-                                            </h4>
-                                            <p className="card-text">{adverts.description} <br/>
-                                                <b>{this.formatDate(new Date(adverts.date))}</b></p>
+                                            </h5>
+                                            <p className="card-text">{this.formatDate(new Date(adverts.date))} </p>
+                                            <p className="card-text">{adverts.category} - {adverts.city}</p>
                                         </div>
                                     </div>
                                 </div>

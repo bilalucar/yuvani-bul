@@ -54,5 +54,8 @@ export const getGender = (callback) =>
 
 export const getCities = (callback) =>
     db.ref('sehirler')
-        .orderByChild('id')
-        .on('child_added', callback);
+        .once('value').then(callback);
+
+export const getCategory = (callback) =>
+    db.ref('adverts')
+        .once('value').then(callback);

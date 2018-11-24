@@ -4,12 +4,9 @@
 }
 
 .form-add {
-    max-width: 50%;
-    margin: auto;
-}
-
-.btn-primary:disabled {
-    background-color: #226490;
+    margin: auto 20px;
+    padding: 20px;
+    background-color: #fff;
 }
 
 @media (min-width: 576px) {

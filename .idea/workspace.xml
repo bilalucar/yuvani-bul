@@ -1,38 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2a95de0-f30e-4099-8bfc-9925eea4564a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/bath.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/knees.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/sad-cat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/seatting.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/walking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Category/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Category/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SignOut/index.css" afterDir="false" />
+    <list default="true" id="b2a95de0-f30e-4099-8bfc-9925eea4564a" name="Default Changelist" comment="ilan ekleme sayfasına cinsiyet ve sehir ekleme ozelligi getirildi. btn-lg ler kucultuldu. ilan ekleme sayfası iki sutun haline getirildi">
+      <change afterPath="$PROJECT_DIR$/src/components/Add/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Add/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Add/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdvertDetail/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdvertDetail/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AdvertDetail/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdvertDetail/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Landing/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Landing/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Landing/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Landing/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PasswordChange/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PasswordChange/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PasswordForget/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PasswordForget/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignIn/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignIn/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignIn/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignIn/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignOut/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignOut/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignUp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignUp/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/firebase/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,23 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Add/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="163" column="86" selection-start-line="163" selection-start-column="84" selection-end-line="163" selection-end-column="86" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Category/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="66" column="40" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
+            <state relative-caret-position="398">
+              <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -73,10 +35,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/firebase/db.js">
+        <entry file="file://$PROJECT_DIR$/src/components/AdvertDetail/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="749">
-              <caret line="60" column="20" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="20" />
+            <state relative-caret-position="149">
+              <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,6 +79,9 @@
       <find>super</find>
       <find>fare</find>
       <find>000</find>
+      <find>age</find>
+      <find>this.state.age</find>
+      <find>city</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -153,7 +121,6 @@
         <option value="$PROJECT_DIR$/src/components/App/index.css" />
         <option value="$PROJECT_DIR$/src/components/Navigation/index.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
-        <option value="$PROJECT_DIR$/src/components/AdvertDetail/index.js" />
         <option value="$PROJECT_DIR$/src/components/App/index.js" />
         <option value="$PROJECT_DIR$/src/constants/routes.js" />
         <option value="$PROJECT_DIR$/src/components/Category/index.css" />
@@ -161,9 +128,11 @@
         <option value="$PROJECT_DIR$/src/components/SignUp/index.js" />
         <option value="$PROJECT_DIR$/src/components/PasswordForget/index.js" />
         <option value="$PROJECT_DIR$/src/components/PasswordChange/index.js" />
-        <option value="$PROJECT_DIR$/src/components/Add/index.js" />
-        <option value="$PROJECT_DIR$/src/firebase/db.js" />
         <option value="$PROJECT_DIR$/src/components/Category/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Add/index.css" />
+        <option value="$PROJECT_DIR$/src/firebase/db.js" />
+        <option value="$PROJECT_DIR$/src/components/AdvertDetail/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Add/index.js" />
       </list>
     </option>
   </component>
@@ -190,17 +159,6 @@
             <path>
               <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
               <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -215,6 +173,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Add" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="AdvertDetail" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
@@ -279,19 +244,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/src/images" />
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src/components/Add" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/components/SignIn" />
       <recent name="$PROJECT_DIR$/src/components/App" />
       <recent name="$PROJECT_DIR$/src/components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Add" />
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/src/images" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -366,7 +331,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94023000" />
+    <option name="totallyTimeSpent" value="99708000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -393,7 +358,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.32891566" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" weight="0.15911485" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50317127" side_tool="true" weight="0.44717446" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49710375" weight="0.19178082" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32997987" />
@@ -414,7 +379,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="ilan ekleme sayfasına cinsiyet ve sehir ekleme ozelligi getirildi. btn-lg ler kucultuldu. ilan ekleme sayfası iki sutun haline getirildi" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation.js" />
     <entry file="file://$PROJECT_DIR$/src/components/SignUp.js" />
     <entry file="file://$PROJECT_DIR$/src/components/Home/index.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/scss/_nav.scss" />
@@ -609,27 +573,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/AdvertDetail/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Navigation/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="896">
           <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -709,27 +656,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Add/index.js">
+    <entry file="file://$PROJECT_DIR$/src/constants/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="163" column="86" selection-start-line="163" selection-start-column="84" selection-end-line="163" selection-end-column="86" />
+        <state relative-caret-position="308">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Category/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/db.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Add/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="749">
-          <caret line="60" column="20" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="20" />
+        <state relative-caret-position="28">
+          <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Category/index.js">
+    <entry file="file://$PROJECT_DIR$/src/firebase/db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="66" column="40" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
+        <state relative-caret-position="508">
+          <caret line="58" column="15" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AdvertDetail/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Add/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

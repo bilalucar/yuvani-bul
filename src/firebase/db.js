@@ -11,7 +11,7 @@ export const createUser = (id, username, email) =>
 export const onceGetUsers = () =>
   db.ref('users').once('value');
 
-export const create = (name, description, category, phone, date, imageUrl, uid, id, gender, city) =>
+export const create = (name, description, category, phone, date, imageUrl, uid, id, gender,age , city) =>
   db.ref('adverts').push({
       name,
       description,
@@ -22,18 +22,13 @@ export const create = (name, description, category, phone, date, imageUrl, uid, 
       uid,
       id,
       gender,
+      age,
       city,
   });
 
 export const writeAdvertsId = (id) => {
     db.ref('adverts/' + id).update({
         id
-    }).then((data)=>{
-        //success callback
-        console.log('data ' , data)
-    }).catch((error)=>{
-        //error callback
-        console.log('error ' , error)
     })
 };
 
@@ -58,4 +53,8 @@ export const getCities = (callback) =>
 
 export const getCategory = (callback) =>
     db.ref('adverts')
+        .once('value').then(callback);
+
+export const getYas = (callback) =>
+    db.ref('yas')
         .once('value').then(callback);

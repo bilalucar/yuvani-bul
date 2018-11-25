@@ -55,6 +55,9 @@ class AdvertDetail extends Component {
                             ♂️ {data.gender}
                         </div>
                         <div className="detail-meta">
+                            🎂 {data.age}
+                        </div>
+                        <div className="detail-meta">
                             📅 {this.formatDate(new Date(data.date))}
                         </div>
                         <div className="detail-meta">

@@ -27,15 +27,19 @@ class CategoryPage extends Component {
     }
 
     setIcon (id) {
-        if (id === "kedi"){
+        if (id === "Kedi"){
             this.setState({
                 icon: '🐈'
             })
-        } else  if (id === "kopek") {
+        } else  if (id === "Köpek") {
             this.setState({
                 icon: '🐕'
             })
-        } else  if (id === "kus") {
+        } else  if (id === "Kuş") {
+            this.setState({
+                icon: '🦜'
+            })
+        } else  if (id === "Kemirgen") {
             this.setState({
                 icon: '🦜'
             })

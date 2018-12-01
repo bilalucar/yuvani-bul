@@ -1,0 +1,19 @@
+.profile {
+    background-color: #ffffff !important;
+    padding: 20px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #7c33a2 !important;
+}
+
+.nav-fill li a {
+    color: #7c33a2;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.tab-content {
+    margin: 20px;
+}

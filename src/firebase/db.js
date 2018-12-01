@@ -35,9 +35,7 @@ export const writeAdvertsId = (id) => {
 
 export const list = (callback) =>
   db.ref('adverts')
-    .orderByKey()
-    .limitToLast(100)
-    .on('child_added', callback);
+    .once('value').then(callback);
 
 export const get = (id) => (callback) =>
     db.ref('adverts/' + id)
@@ -57,4 +55,8 @@ export const getCategory = (callback) =>
 
 export const getYas = (callback) =>
     db.ref('yas')
+        .once('value').then(callback);
+
+export const getProfile = (id) => (callback) =>
+    db.ref('users/' + id)
         .once('value').then(callback);

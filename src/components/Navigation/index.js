@@ -23,15 +23,7 @@ const NavigationAuth = () =>
     <ul className="nav navbar-nav navbar-right">
         <li className="nav-item"><Link className='nav-link' to={routes.ADD}>✍️ İlan Ekle</Link>
         </li>
-        <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">
-                😎 Hesap
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className='dropdown-item' to={routes.ACCOUNT}>Profil</Link>
-                <Link className='dropdown-item' to={routes.PASSWORD_CHANGE}>Parola Güncelle</Link>
-            </div>
+        <li className="nav-item"><Link className='nav-link' to={routes.ACCOUNT}>😎 Profil</Link>
         </li>
         <li className="nav-item"><SignOutButton/></li>
     </ul>;

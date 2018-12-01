@@ -51,6 +51,22 @@ class CategoryPage extends Component {
     }
 
     async getData(propsId) {
+        switch (propsId) {
+            case 'kedi':
+                propsId = 'Kedi';
+                break;
+            case 'kopek':
+                propsId = 'Köpek';
+                break;
+            case 'kus':
+                propsId = 'Kuş';
+                break;
+            case 'kemirgen':
+                propsId = 'Kemirgen';
+                break;
+            default:
+                propsId = 'Diğer';
+        }
         const items = [];
         db.getCategory((snapshot) => {
             snapshot.forEach((childSnapshot) => {

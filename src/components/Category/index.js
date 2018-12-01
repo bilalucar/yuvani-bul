@@ -26,14 +26,6 @@ class CategoryPage extends Component {
         this.setIcon(nextProps.match.params.id);
     }
 
-    formatDate(date) {
-        const day = date.getDate();
-        const monthIndex = date.getMonth();
-        const year = date.getFullYear();
-
-        return day + '.' + monthIndex + '.' + year;
-    }
-
     setIcon (id) {
         if (id === "kedi"){
             this.setState({
@@ -104,7 +96,7 @@ class CategoryPage extends Component {
                                             <h5 className="card-title">
                                                 <Link to={'/adverts/' + adverts.id} >{adverts.name}</Link>
                                             </h5>
-                                            <p className="card-text">{this.formatDate(new Date(adverts.date))} </p>
+                                            <p className="card-text">{adverts.date} </p>
                                             <p className="card-text">{adverts.category} - {adverts.city}</p>
                                         </div>
                                     </div>

@@ -26,7 +26,9 @@ class AccountDetailPage extends Component {
             city: '',
             adverts: [],
             loader: true
-        }
+        };
+
+        this.deleteAdverts = this.deleteAdverts.bind(this);
     }
 
     componentWillMount() {
@@ -50,7 +52,7 @@ class AccountDetailPage extends Component {
                 }
             });
             this.setState({
-                adverts: items,
+                adverts: items.reverse(),
                 loader: false
             });
         });
@@ -70,12 +72,9 @@ class AccountDetailPage extends Component {
         });
     }
 
-    formatDate(date) {
-        const day = date.getDate();
-        const monthIndex = date.getMonth();
-        const year = date.getFullYear();
-
-        return day + '.' + monthIndex + '.' + year;
+    async deleteAdverts(id) {
+        db.deleteAdvert(id);
+        this.getData(this.props.auth.uid);
     }
 
     render() {
@@ -129,6 +128,7 @@ class AccountDetailPage extends Component {
                                 </ul>
                                 <div className="tab-content">
                                     <div className="tab-pane active" id="home">
+                                        <h3>Aktif İlanlarınız</h3>
                                         <div className="row">
                                             {adverts.map((adverts, key) =>
                                                 <div className="col-lg-4 col-md-4 col-sm-6 portfolio-item" key={key.toString()}>
@@ -140,8 +140,13 @@ class AccountDetailPage extends Component {
                                                             <h5 className="card-title">
                                                                 <Link to={'/adverts/' + adverts.id} >{adverts.name}</Link>
                                                             </h5>
-                                                            <p className="card-text">{this.formatDate(new Date(adverts.date))} </p>
+                                                            <p className="card-text">{adverts.date} </p>
                                                             <p className="card-text">{adverts.category} - {adverts.city}</p>
+                                                        </div>
+                                                        <div className="card-footer text-right">
+                                                            <a href="javascript:;" onClick={() => this.deleteAdverts(adverts.id)}>
+                                                                <i className="fa fa-trash"></i>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>

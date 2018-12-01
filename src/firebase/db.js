@@ -32,6 +32,9 @@ export const writeAdvertsId = (id) => {
     })
 };
 
+export const deleteAdvert = (id) =>{
+    db.ref('adverts/' + id).remove();
+};
 
 export const list = (callback) =>
   db.ref('adverts')

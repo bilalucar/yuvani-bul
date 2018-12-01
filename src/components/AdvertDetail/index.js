@@ -21,14 +21,6 @@ class AdvertDetail extends Component {
         });
     }
 
-    formatDate(date) {
-        const day = date.getDate();
-        const monthIndex = date.getMonth();
-        const year = date.getFullYear();
-
-        return day + '.' + monthIndex + '.' + year;
-    }
-
     render() {
         const data = this.state.data;
         return(
@@ -58,7 +50,7 @@ class AdvertDetail extends Component {
                             🎂 {data.age}
                         </div>
                         <div className="detail-meta">
-                            📅 {this.formatDate(new Date(data.date))}
+                            📅 {data.date}
                         </div>
                         <div className="detail-meta">
                             📱 {data.phone}

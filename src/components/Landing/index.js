@@ -6,18 +6,21 @@ import {db} from '../../firebase';
 import './index.css';
 
 class LandingPage extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             adverts: [],
             loader: true
         };
+
+        this.getData = this.getData.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.getData();
     }
+
     async getData () {
         const items = [];
         db.list((snapshot) => {
@@ -27,18 +30,10 @@ class LandingPage extends Component {
                 items.push(item);
             });
             this.setState({
-                adverts: items,
+                adverts: items.reverse(),
                 loader: false
             });
         });
-    }
-
-    formatDate(date) {
-        const day = date.getDate();
-        const monthIndex = date.getMonth();
-        const year = date.getFullYear();
-
-        return day + '.' + monthIndex + '.' + year;
     }
 
     render() {
@@ -71,7 +66,7 @@ class LandingPage extends Component {
                                             <h5 className="card-title">
                                                 <Link to={'/adverts/' + adverts.id} >{adverts.name}</Link>
                                             </h5>
-                                            <p className="card-text">{this.formatDate(new Date(adverts.date))} </p>
+                                            <p className="card-text">{adverts.date} </p>
                                             <p className="card-text">{adverts.category} - {adverts.city}</p>
                                         </div>
                                     </div>

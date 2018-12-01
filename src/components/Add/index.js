@@ -32,7 +32,7 @@ class AddFormPage extends Component {
             ages: [],
             cities: [],
             phone: '',
-            date: '',
+            date: new Date().toLocaleDateString('tr-TR'),
             imageUrl: '',
             uid: '',
             error: null,
@@ -42,7 +42,7 @@ class AddFormPage extends Component {
             id: '0',
             submitMessage: ''
         };
-        this.baseState = this.state
+        this.baseState = this.state;
     }
 
     componentWillMount() {
@@ -54,8 +54,9 @@ class AddFormPage extends Component {
 
     resetForm() {
         setTimeout(() => {
-            this.setState(this.baseState)
-        },3000);
+            this.setState(this.baseState);
+            this.getCities();
+        },2500);
     }
 
     async getCities () {
@@ -102,10 +103,9 @@ class AddFormPage extends Component {
             imageUrl,
             uid,
             id,
+            date,
             submitMessage
         } = this.state;
-
-        const date = new Date().getDate();
 
         db.create(name, description, category, phone, date, imageUrl, uid, id, gender, age, city)
             .then((data) => {
@@ -121,8 +121,8 @@ class AddFormPage extends Component {
         event.preventDefault();
     };
 
-    handleUploadStart = () => this.setState({isUploading: true, progress: 0});
-    handleProgress = (progress) => <ProgressBar now={progress}/>;
+    handleUploadStart = () => this.setState({isUploading: true, progress: 1});
+    handleProgress = (progress) => this.setState({progress: progress});
     handleUploadError = (error) => {
         this.setState({isUploading: false});
         console.error(error);
@@ -149,7 +149,6 @@ class AddFormPage extends Component {
             submitMessage
         } = this.state;
 
-        console.log(this.state.ages)
         const isInvalid =
             category === '' ||
             phone === '' ||
@@ -180,11 +179,12 @@ class AddFormPage extends Component {
                                     value={category}
                                     onChange={event => this.setState(updateByPropertyName('category', event.target.value))}>
                                 <option value="-1">🏷️ Evcil Hayvan Türü</option>
-                                <option value="kedi">Kedi</option>
-                                <option value="kopek">Köpek</option>
-                                <option value="kus">Kuş</option>
-                                <option value="balik">Balık</option>
-                                <option value="diger">Diğer</option>
+                                <option value="Kedi">Kedi</option>
+                                <option value="Köpek">Köpek</option>
+                                <option value="Kuş">Kuş</option>
+                                <option value="Balık">Balık</option>
+                                <option value="Kemirgen">Kemirgen</option>
+                                <option value="Diğer">Diğer</option>
                             </select>
                             <select className="form-control mb-3"
                                     value={gender}

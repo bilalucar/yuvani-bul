@@ -55,11 +55,6 @@ const App = () =>
             <Route exact path={routes.ADD} component={() => <AddPage/>}/>
             <Route path="/adverts/:id" component={AdvertDetail}/>
             <Route path="/category/:id" component={CategoryPage}/>
-            <footer className="footer navbar-fixed-bottom font-small blue mt-5">
-                <div className="footer-copyright text-center py-3">© 2018 Copyright:
-                    <a href="/"> Yuvanı Bul</a>
-                </div>
-            </footer>
         </div>
     </Router>
 

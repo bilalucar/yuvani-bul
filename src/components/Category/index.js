@@ -11,7 +11,8 @@ class CategoryPage extends Component {
 
         this.state = {
             adverts: [],
-            icon: ''
+            icon: '',
+            loader: true
         };
     }
 
@@ -64,7 +65,8 @@ class CategoryPage extends Component {
                 }
             });
             this.setState({
-                adverts: items.reverse()
+                adverts: items.reverse(),
+                loader: false
             })
         });
     }
@@ -72,10 +74,20 @@ class CategoryPage extends Component {
     render() {
         const {
             adverts,
-            icon
+            icon,
+            loader
         } = this.state;
 
         return (
+            loader ?
+                <div className="loader-container">
+                    <div className="spinner">
+                        <div className="bounce1"></div>
+                        <div className="bounce2"></div>
+                        <div className="bounce3"></div>
+                    </div>
+                </div>
+                :
             adverts.length ?
             <div>
                     <div className="container mb-5">

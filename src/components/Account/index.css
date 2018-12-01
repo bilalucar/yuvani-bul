@@ -14,6 +14,10 @@
     background-color: transparent;
 }
 
+.nav-pills .nav-item a:hover {
+    color: #E040FB;
+}
+
 .tab-content {
     margin: 20px;
 }

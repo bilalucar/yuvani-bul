@@ -144,7 +144,8 @@ class AccountDetailPage extends Component {
                                                             <p className="card-text">{adverts.category} - {adverts.city}</p>
                                                         </div>
                                                         <div className="card-footer text-right">
-                                                            <a href="javascript:;" onClick={() => this.deleteAdverts(adverts.id)}>
+                                                            <a href="javascript:;" onClick={() => window.confirm("İlanı silmek istediğinize emin misiniz?") &&
+                                                                this.deleteAdverts(adverts.id)}>
                                                                 <i className="fa fa-trash"></i>
                                                             </a>
                                                         </div>

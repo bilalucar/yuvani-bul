@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2a95de0-f30e-4099-8bfc-9925eea4564a" name="Default Changelist" comment="category refactoring">
+    <list default="true" id="b2a95de0-f30e-4099-8bfc-9925eea4564a" name="Default Changelist" comment="adding account delete alert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Account/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Account/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/db.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +23,63 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Account/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+            <state relative-caret-position="223">
+              <caret line="133" column="13" lean-forward="true" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#4610#6837#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/SignOut/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/PasswordChange/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="52">
+              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/firebase/db.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="421">
+              <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/SignUp/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Add/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -42,8 +98,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>margin-top:</find>
-      <find>super</find>
       <find>fare</find>
       <find>000</find>
       <find>age</find>
@@ -51,13 +105,11 @@
       <find>city</find>
       <find>&lt;br&gt;</find>
       <find>&lt;img</find>
-      <find>form</find>
       <find>hr</find>
       <find>&lt;hr</find>
       <find>ema</find>
       <find>async</find>
       <find>sty</find>
-      <find>email</find>
       <find>submitMessage</find>
       <find>loader</find>
       <find>formatdate</find>
@@ -72,6 +124,10 @@
       <find>formaet</find>
       <find>popover</find>
       <find>componen</find>
+      <find>Profil Detayları</find>
+      <find>form</find>
+      <find>email</find>
+      <find>doPasswordUpdate</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -119,19 +175,19 @@
         <option value="$PROJECT_DIR$/src/components/AdvertDetail/index.js" />
         <option value="$PROJECT_DIR$/src/components/Landing/index.css" />
         <option value="$PROJECT_DIR$/src/components/Account/index.css" />
-        <option value="$PROJECT_DIR$/src/firebase/db.js" />
         <option value="$PROJECT_DIR$/src/components/Add/index.js" />
         <option value="$PROJECT_DIR$/src/components/Landing/index.js" />
         <option value="$PROJECT_DIR$/src/components/Category/index.js" />
+        <option value="$PROJECT_DIR$/src/firebase/db.js" />
         <option value="$PROJECT_DIR$/src/components/Account/index.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1440" />
-    <option name="y" value="-141" />
-    <option name="width" value="1878" />
-    <option name="height" value="1041" />
+    <option name="y" value="-157" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -156,6 +212,46 @@
               <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
               <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Add" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="PasswordChange" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="SignOut" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="SignUp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yuvani-bul" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yuvani-bul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="firebase" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -235,7 +331,8 @@
       <workItem from="1543070032166" duration="21774000" />
       <workItem from="1543672711824" duration="19731000" />
       <workItem from="1544287697333" duration="674000" />
-      <workItem from="1544457316398" duration="5054000" />
+      <workItem from="1544457316398" duration="7000000" />
+      <workItem from="1545454430337" duration="5116000" />
     </task>
     <task id="LOCAL-00001" summary="proje yapisi olusturuldu">
       <created>1540239345795</created>
@@ -307,11 +404,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543706747956</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="adding account delete alert">
+      <created>1544964917826</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1544964917826</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125436000" />
+    <option name="totallyTimeSpent" value="132498000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -326,7 +430,7 @@
     <frame x="1440" y="-157" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49632892" visible="true" weight="0.18904686" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49632892" visible="true" weight="0.18904686" />
       <window_info id="Structure" order="1" sideWeight="0.50367105" side_tool="true" weight="0.17693523" />
       <window_info id="npm" order="2" sideWeight="0.50367105" side_tool="true" weight="0.17693523" />
       <window_info id="Favorites" order="3" sideWeight="0.50367105" side_tool="true" weight="0.17693523" />
@@ -336,12 +440,12 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.32891566" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.32876712" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" weight="0.15911485" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50317127" side_tool="true" weight="0.44717446" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49710375" weight="0.36248684" />
-      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32997987" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49710375" visible="true" weight="0.44678608" />
+      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32982087" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -363,16 +467,10 @@
     <MESSAGE value="loader eklendi, footer kaldırıldı" />
     <MESSAGE value="format date bugfix and refactoring" />
     <MESSAGE value="category refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="category refactoring" />
+    <MESSAGE value="adding account delete alert" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding account delete alert" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/storage.rules">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/firestore.indexes.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -449,16 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/SignOut/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/AdvertDetail/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -500,26 +588,6 @@
     <entry file="file://$PROJECT_DIR$/public/images/logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/SignUp/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="82" column="73" selection-start-line="82" selection-start-column="73" selection-end-line="82" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/PasswordChange/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="46" column="50" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/PasswordForget/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
@@ -559,13 +627,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/palette (1).css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="6" column="44" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/palette (1).css" />
     <entry file="file://$PROJECT_DIR$/src/components/SignIn/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -618,13 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Account/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
@@ -648,16 +703,6 @@
           <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Add/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="114" column="26" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -719,12 +764,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Account/index.js">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+        <state relative-caret-position="243">
+          <caret line="537" column="16" selection-start-line="537" selection-start-column="16" selection-end-line="537" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SignUp/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SignOut/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PasswordChange/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Add/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Account/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="133" column="13" lean-forward="true" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#4610#6837#0" />
           </folding>
         </state>
       </provider>

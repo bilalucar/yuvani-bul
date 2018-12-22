@@ -32,6 +32,23 @@ export const writeAdvertsId = (id) => {
     })
 };
 
+export const updateProfile = (id, data) => {
+    const { phone,
+        password,
+        email,
+        username,
+        city,
+        name } = data;
+    db.ref('users/' + id).update({
+        phone,
+        password,
+        email,
+        username,
+        city,
+        name
+    })
+};
+
 export const deleteAdvert = (id) =>{
     db.ref('adverts/' + id).remove();
 };

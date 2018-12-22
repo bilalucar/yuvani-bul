@@ -6,6 +6,9 @@ import * as db from "../../firebase/db";
 
 import './index.css';
 import {Link} from "react-router-dom";
+import {auth} from '../../firebase';
+import * as firebase from "../../firebase/firebase";
+import FileUploader from "react-firebase-file-uploader";
 
 const AccountPage = ({history}, { authUser }) =>
     <div>
@@ -16,16 +19,30 @@ const updateByPropertyName = (propertyName, value) => () => ({
     [propertyName]: value,
 });
 
+const INITIAL_STATE = {
+    passwordOne: '',
+    passwordTwo: '',
+    error: null,
+};
+
 class AccountDetailPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
             username: '',
-            cities: [],
+            name: '',
+            phone: '',
+            passwordOne: '',
+            passwordTwo: '',
+            error: '',
             city: '',
+            cities: [],
             adverts: [],
-            loader: true
+            profileUpdate: false,
+            loader: true,
+            isUploading: false,
+            progress: 0
         };
 
         this.deleteAdverts = this.deleteAdverts.bind(this);
@@ -40,6 +57,10 @@ class AccountDetailPage extends Component {
             this.setState({
                 email: callback.val().email,
                 username: callback.val().username,
+                name: callback.val().name,
+                phone: callback.val().phone,
+                password: callback.val().password,
+                city: callback.val().city,
             });
         });
 
@@ -77,14 +98,60 @@ class AccountDetailPage extends Component {
         this.getData(this.props.auth.uid);
     }
 
+    onSubmit = ((event) => {
+        db.updateProfile(this.props.auth.uid, this.state)
+            .then(() => {
+                this.setState({profileUpdate: true});
+            });
+        event.preventDefault();
+    });
+
+    passwordUpdate = ((event) => {
+        const {passwordOne} = this.state;
+
+        auth.doPasswordUpdate(passwordOne)
+            .then(() => {
+                this.setState(() => ({...INITIAL_STATE}));
+                auth.doSignOut();
+            })
+            .catch(error => {
+                this.setState(updateByPropertyName('error', error));
+            });
+
+        event.preventDefault();
+    });
+
+    handleUploadStart = () => this.setState({isUploading: true, progress: 1});
+    handleProgress = (progress) => this.setState({progress: progress});
+    handleUploadError = (error) => {
+        this.setState({isUploading: false});
+        console.error(error);
+    };
+    handleUploadSuccess = (filename) => {
+        this.setState({image: filename, progress: 100, isUploading: false});
+        firebase.storage.ref('images').child(filename).getDownloadURL().then(url => {
+                this.setState({imageUrl: url});
+            }
+        );
+    };
+
     render() {
         const {
+            phone,
+            passwordOne,
+            passwordTwo,
+            error,
             email,
             username,
             adverts,
             city,
+            name,
             loader
         } = this.state;
+
+        const isInvalid =
+            passwordOne !== passwordTwo ||
+            passwordOne === '';
 
         return (
             loader ?
@@ -105,7 +172,17 @@ class AccountDetailPage extends Component {
                                     <img src="https://firebasestorage.googleapis.com/v0/b/yuvani-bul.appspot.com/o/cat.jpg?alt=media&token=a3fd7dd8-209f-45cb-abfe-57addcb3f04f"
                                          className="avatar img-circle img-thumbnail" alt="avatar"/>
                                     <h6>Farklı bir fotoğraf yükle...</h6>
-                                    <input type="file" className="text-center center-block file-upload"/>
+                                    <FileUploader
+                                        className="custom-file-input"
+                                        accept="image/*"
+                                        name="image"
+                                        randomizeFilename
+                                        storageRef={firebase.storage.ref('images')}
+                                        onUploadStart={this.handleUploadStart}
+                                        onUploadError={this.handleUploadError}
+                                        onUploadSuccess={this.handleUploadSuccess}
+                                        onProgress={this.handleProgress}
+                                    />
                                 </div>
                                 <br/>
 
@@ -113,7 +190,7 @@ class AccountDetailPage extends Component {
                                     <li className="list-group-item text-muted">Profil Detayları <i className="fa fa-dashboard fa-1x"></i>
                                     </li>
                                     <li className="list-group-item text-right"><span
-                                        className="pull-left"><strong>İlan Sayısı</strong></span> 125
+                                        className="pull-left"><strong>İlan Sayısı</strong></span> {adverts.length}
                                     </li>
                                 </ul>
                             </div>
@@ -123,7 +200,10 @@ class AccountDetailPage extends Component {
                                         <a className="nav-link active" data-toggle="tab" href="#home">İlanlar</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" data-toggle="tab" href="#messages">Profili Güncelle</a>
+                                        <a className="nav-link" data-toggle="tab" href="#account">Profili Güncelle</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" data-toggle="tab" href="#password">Parola Güncelle</a>
                                     </li>
                                 </ul>
                                 <div className="tab-content">
@@ -154,26 +234,27 @@ class AccountDetailPage extends Component {
                                             )}
                                         </div>
                                     </div>
-                                    <div className="tab-pane" id="messages">
+                                    <div className="tab-pane" id="account">
                                         <div className="col-lg-12 text-right">
                                             <span>Sadece güncellemek istediğiniz alanları doldurun!</span>
                                         </div>
-                                        <form className="form" action="#" method="post" id="registrationForm">
+                                        <form className="form" onSubmit={this.onSubmit}>
                                             <div className="form-group">
 
                                                 <div className="col-xs-6">
                                                     <label htmlFor="first_name"><h4>📛 Ad - Soyad</h4></label>
                                                     <input type="text" className="form-control"
-                                                           placeholder="adınızı ve soyadınızı girin" title="adınızı girin"/>
+                                                           onChange={event => this.setState(updateByPropertyName('name', event.target.value))}
+                                                           placeholder="Lütfen adınızı ve soyadınızı girin" value={name}/>
                                                 </div>
                                             </div>
                                             <div className="form-group">
 
                                                 <div className="col-xs-6">
-                                                    <label htmlFor="last_name"><h4>🆔 Kullanıcı Adı</h4></label>
+                                                    <label htmlFor="last_name"><h4>🆔 Kullanıcı Adı (Değiştirilemez)</h4></label>
                                                     <input type="text" className="form-control"
                                                            onChange={event => this.setState(updateByPropertyName('username', event.target.value))}
-                                                           placeholder={username} title="kullanıcı adınızı girin"/>
+                                                           value={username} disabled/>
                                                 </div>
                                             </div>
 
@@ -182,7 +263,8 @@ class AccountDetailPage extends Component {
                                                 <div className="col-xs-6">
                                                     <label htmlFor="phone"><h4>📱 Telefon</h4></label>
                                                     <input type="text" className="form-control"
-                                                           placeholder="telefon numaranızı girin" title="telefon numaranızı girin"/>
+                                                           onChange={event => this.setState(updateByPropertyName('phone', event.target.value))}
+                                                           value={phone}  placeholder="Lütfen telefon numaranızı girin"/>
                                                 </div>
                                             </div>
                                             <div className="form-group">
@@ -191,7 +273,7 @@ class AccountDetailPage extends Component {
                                                     <label htmlFor="email"><h4>📧 Email</h4></label>
                                                     <input type="email" className="form-control"
                                                            onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
-                                                           value={email} title="enter your email."/>
+                                                           value={email} placeholder="Lütfen email adresinizi girin"/>
                                                 </div>
                                             </div>
                                             <div className="form-group">
@@ -209,14 +291,7 @@ class AccountDetailPage extends Component {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-
-                                                <div className="col-xs-6">
-                                                    <label htmlFor="password"><h4>🗝️ Parola</h4></label>
-                                                    <input type="password" className="form-control"
-                                                           placeholder="parolanızı girin." title="enter your password."/>
-                                                </div>
-                                            </div>
-                                            <div className="form-group">
+                                                { this.state.profileUpdate ? '<div className="alert alert-success" role="alert">Profiliniz başarılı bir şekilde güncellendi!</div>' : '' }
                                                 <div className="col-xs-12 text-right">
                                                     <button className="btn btn-lg" type="reset"><i
                                                         className="glyphicon glyphicon-repeat"></i> Sıfırla
@@ -227,14 +302,34 @@ class AccountDetailPage extends Component {
                                                 </div>
                                             </div>
                                         </form>
-
                                     </div>
 
+                                    <div className="tab-pane" id="password">
+                                        <form className="form" onSubmit={this.passwordUpdate}>
+                                            <input
+                                                className="form-control mb-3"
+                                                value={passwordOne}
+                                                onChange={event => this.setState(updateByPropertyName('passwordOne', event.target.value))}
+                                                type="password"
+                                                placeholder="Yeni Parola"
+                                            />
+                                            <input
+                                                className="form-control mb-3"
+                                                value={passwordTwo}
+                                                onChange={event => this.setState(updateByPropertyName('passwordTwo', event.target.value))}
+                                                type="password"
+                                                placeholder="Parolanızı Tekrarlayın"
+                                            />
+                                            <button className="btn btn-button btn-block" disabled={isInvalid} type="submit">
+                                                😜 Parolamı Değiştir
+                                            </button>
+
+                                            {error && <p>{error.message}</p>}
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
         )

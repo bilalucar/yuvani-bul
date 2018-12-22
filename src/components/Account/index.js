@@ -29,6 +29,7 @@ class AccountDetailPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            user: '',
             email: '',
             username: '',
             name: '',
@@ -37,6 +38,7 @@ class AccountDetailPage extends Component {
             passwordTwo: '',
             error: '',
             city: '',
+            profilePicture: '',
             cities: [],
             adverts: [],
             profileUpdate: false,
@@ -49,6 +51,7 @@ class AccountDetailPage extends Component {
     }
 
     componentWillMount() {
+        this.setState({user: this.props.auth});
         this.getData(this.props.auth.uid);
     }
 
@@ -61,6 +64,7 @@ class AccountDetailPage extends Component {
                 phone: callback.val().phone,
                 password: callback.val().password,
                 city: callback.val().city,
+                profilePicture: callback.val().profilePicture,
             });
         });
 
@@ -98,11 +102,13 @@ class AccountDetailPage extends Component {
         this.getData(this.props.auth.uid);
     }
 
+    updateProfile () {
+        db.updateProfile(this.state.user.uid, this.state);
+        this.setState({profileUpdate: true});
+    }
+
     onSubmit = ((event) => {
-        db.updateProfile(this.props.auth.uid, this.state)
-            .then(() => {
-                this.setState({profileUpdate: true});
-            });
+        this.updateProfile();
         event.preventDefault();
     });
 
@@ -129,8 +135,9 @@ class AccountDetailPage extends Component {
     };
     handleUploadSuccess = (filename) => {
         this.setState({image: filename, progress: 100, isUploading: false});
-        firebase.storage.ref('images').child(filename).getDownloadURL().then(url => {
-                this.setState({imageUrl: url});
+        firebase.storage.ref('profilePicture/').child(filename).getDownloadURL().then(url => {
+                this.setState({profilePicture: url});
+                this.updateProfile();
             }
         );
     };
@@ -169,15 +176,15 @@ class AccountDetailPage extends Component {
                             <div className="col-sm-3">
                                 <div className="text-center">
                                     <h1>{username}</h1>
-                                    <img src="https://firebasestorage.googleapis.com/v0/b/yuvani-bul.appspot.com/o/cat.jpg?alt=media&token=a3fd7dd8-209f-45cb-abfe-57addcb3f04f"
+                                    <img src={this.state.profilePicture ? this.state.profilePicture : 'https://firebasestorage.googleapis.com/v0/b/yuvani-bul.appspot.com/o/cat.jpg?alt=media&token=a3fd7dd8-209f-45cb-abfe-57addcb3f04f'}
                                          className="avatar img-circle img-thumbnail" alt="avatar"/>
-                                    <h6>Farklı bir fotoğraf yükle...</h6>
                                     <FileUploader
                                         className="custom-file-input"
                                         accept="image/*"
                                         name="image"
-                                        randomizeFilename
-                                        storageRef={firebase.storage.ref('images')}
+                                        type="file" className="form-control-file"
+                                        filename={this.state.user.uid}
+                                        storageRef={firebase.storage.ref('profilePicture/')}
                                         onUploadStart={this.handleUploadStart}
                                         onUploadError={this.handleUploadError}
                                         onUploadSuccess={this.handleUploadSuccess}
@@ -238,6 +245,7 @@ class AccountDetailPage extends Component {
                                         <div className="col-lg-12 text-right">
                                             <span>Sadece güncellemek istediğiniz alanları doldurun!</span>
                                         </div>
+                                        { this.state.profileUpdate ? <div className="alert alert-success" role="alert">Profiliniz başarılı bir şekilde güncellendi!</div> : <div></div> }
                                         <form className="form" onSubmit={this.onSubmit}>
                                             <div className="form-group">
 
@@ -291,7 +299,6 @@ class AccountDetailPage extends Component {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                { this.state.profileUpdate ? '<div className="alert alert-success" role="alert">Profiliniz başarılı bir şekilde güncellendi!</div>' : '' }
                                                 <div className="col-xs-12 text-right">
                                                     <button className="btn btn-lg" type="reset"><i
                                                         className="glyphicon glyphicon-repeat"></i> Sıfırla

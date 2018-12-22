@@ -38,14 +38,16 @@ export const updateProfile = (id, data) => {
         email,
         username,
         city,
-        name } = data;
+        name,
+        profilePicture} = data;
     db.ref('users/' + id).update({
         phone,
         password,
         email,
         username,
         city,
-        name
+        name,
+        profilePicture
     })
 };
 

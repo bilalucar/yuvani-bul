@@ -32,7 +32,7 @@ const App = () =>
                             </li>
                             <li className="nav-item"><Link className='nav-link' to={routes.DOG}>🐕 Köpek</Link>
                             </li>
-                            <li className="nav-item"><Link className='nav-link' to={routes.BIRD}>🦜 Kuş</Link>
+                            <li className="nav-item"><Link className='nav-link' to={routes.BIRD}>🐦 Kuş</Link>
                             </li>
                             <li className="nav-item"><Link className='nav-link' to={routes.MOUSE}>🐁 Kemirgen</Link>
                             </li>

@@ -27,7 +27,8 @@
     font-size: 25px;
 }
 
-.not-found {
-    width: 75%;
-    margin: 20px;
+.profile-info {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

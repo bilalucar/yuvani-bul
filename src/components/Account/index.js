@@ -153,7 +153,8 @@ class AccountDetailPage extends Component {
             adverts,
             city,
             name,
-            loader
+            loader,
+            progress
         } = this.state;
 
         const isInvalid =
@@ -178,6 +179,14 @@ class AccountDetailPage extends Component {
                                     <h1>{username}</h1>
                                     <img src={this.state.profilePicture ? this.state.profilePicture : 'https://firebasestorage.googleapis.com/v0/b/yuvani-bul.appspot.com/o/cat.jpg?alt=media&token=a3fd7dd8-209f-45cb-abfe-57addcb3f04f'}
                                          className="avatar img-circle img-thumbnail" alt="avatar"/>
+                                    {
+                                        progress>0 ? <div className="progress mb-3">
+                                            <div className="progress-bar" role="progressbar" aria-valuenow={progress}
+                                                 aria-valuemin="0" aria-valuemax="100" style={ { width: `${progress}%` } }>
+                                                %{progress}
+                                            </div>
+                                        </div> : <div></div>
+                                    }
                                     <FileUploader
                                         className="custom-file-input"
                                         accept="image/*"
@@ -217,7 +226,8 @@ class AccountDetailPage extends Component {
                                     <div className="tab-pane active" id="home">
                                         <h3>Aktif İlanlarınız</h3>
                                         <div className="row">
-                                            {adverts.map((adverts, key) =>
+                                            {adverts.length ?
+                                                adverts.map((adverts, key) =>
                                                 <div className="col-lg-4 col-md-4 col-sm-6 portfolio-item" key={key.toString()}>
                                                     <div className="card h-100">
                                                         <Link to={'/adverts/' + adverts.id} >
@@ -237,8 +247,12 @@ class AccountDetailPage extends Component {
                                                             </a>
                                                         </div>
                                                     </div>
+                                                </div>)
+                                                : <div className="text-center">
+                                                    <h4>Aktif ilanınız bulunamadı!</h4>
+                                                    <img className="not-found" src="https://firebasestorage.googleapis.com/v0/b/yuvani-bul.appspot.com/o/kopek.jpg?alt=media&token=025046d1-c63c-4ff3-b670-e863e6c2c906" />
                                                 </div>
-                                            )}
+                                            }
                                         </div>
                                     </div>
                                     <div className="tab-pane" id="account">

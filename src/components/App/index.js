@@ -18,6 +18,7 @@ import AddPage from "../Add";
 import PasswordChangeForm from "../PasswordChange";
 import {AdvertDetail} from "../AdvertDetail";
 import CategoryPage from "../Category";
+import PublicProfilePage from "../PublicProfile";
 
 const App = () =>
     <Router>
@@ -55,6 +56,7 @@ const App = () =>
             <Route exact path={routes.ADD} component={() => <AddPage/>}/>
             <Route path="/adverts/:id" component={AdvertDetail}/>
             <Route path="/category/:id" component={CategoryPage}/>
+            <Route path="/profile/:id" component={PublicProfilePage}/>
         </div>
     </Router>
 

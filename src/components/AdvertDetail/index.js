@@ -2,6 +2,7 @@ import {Component} from "react";
 import React from "react";
 import * as db from "../../firebase/db";
 import './index.css';
+import {Link} from "react-router-dom";
 
 class AdvertDetail extends Component {
 
@@ -54,6 +55,9 @@ class AdvertDetail extends Component {
                         </div>
                         <div className="detail-meta">
                             📱 {data.phone}
+                        </div>
+                        <div className="detail-meta">
+                            <Link to={'/profile/' + data.uid} >Bu ilan sahibinin profiline gitmek için tıklayın!</Link>
                         </div>
                     </div>
                 </div>

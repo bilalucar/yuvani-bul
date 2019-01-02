@@ -33,6 +33,11 @@ export const writeAdvertsId = (id) => {
 };
 
 export const updateProfile = (id, data) => {
+    data.phone = data.phone ? data.phone : null;
+    data.password = data.password ? data.password : null;
+    data.city = data.city ? data.city : null;
+    data.name = data.name ? data.name : null;
+    data.profilePicture = data.profilePicture ? data.profilePicture : null;
     const { phone,
         password,
         email,
